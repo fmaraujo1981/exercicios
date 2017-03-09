@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#exibe").click(function(){
+        $("p").show();
+    });
+});
+
+$(document).ready(function(){
+    $("#oculta").click(function(){
+        $("p").hide();
+    });
+});
+
+</script>
+</head>
+<body>
+
+<h2>This is a heading</h2>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<button id="oculta">Click me to hide paragraphs</button>
+<button id="exibe">Click me to show paragraphs</button>
+
+</body>
+</html>
