@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang=”pt-br”>
+<head>
+<meta charset=”UTF-8”>
+<title></title>
+<link rel="stylesheet" href="estilo.css" type="text/css" />
+<script src="funcoes.js"></script>
+</head>
+<body>
+
+<div id="conteudo">
+<header id="home">
+ <h1>Análise e Desenvolvimento de Sisteas</h1>
+ <h2>Web1</h2>
+ 
+ <nav>
+  <ul class="menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li id="sub"><a href="#produtos">Produtos</a>
+	<ul class="submenu">
+			<li><a href="#prod1">Produto 1</a></li>
+			<li><a href="#prod2">Produto 2</a></li>
+			<li><a href="#prod3">Produto 3</a></li>
+			</ul>
+	</li>
+    <li><a href="#faleconosco">Fale Conosco</a></li>
+  </ul>
+</nav>
+</header>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div id="sobre" class="parallax1">
+<h1> Sobre a empresa </h1>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div id="produtos" class="parallax2">
+<h1> Produtos </h1>
+<img src="" alt="Produto" />
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<form id="faleconosco" >
+<h1> Fale conosco</h1>
+ <label> Digite N1 </label>
+	<input type="number" id="n1" onchange="calcula()" > <br/>
+	<label> Digite N2 </label>
+	<input type="number" onkeypress="calcula()"id="n2"> <br/>
+	<label> Média </label>
+	<input type="text" id="media" disabled> <input type="text" id="sit" disabled> <br/>
+	<input type="button" value="Calcule!" onclick="calcula()"/>
+	<hr/>
+	<label> Nome</label>
+	<input type="text" id="nome"/><br/>
+	<label> Endereço</label>
+	<input type="text" id="end"/><br/>
+	<label> Telefone</label>
+	<input type="password" id="tel"/><br/>
+	
+	<input>Dia da semana</input>
+	<select>
+	
+	<script>
+	
+	for (i=0;i<7;i++){
+	document.write("<option>"+dias[i]+"</option>")
+	}
+	</script>
+	<select>
+		
+	<input type="button" onclick="valida()" value="ok"/>
+	
+	</form>
+	<div id="mapa">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d918.7672679362861!2d-43.17421949907913!3d-22.91082304710723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9981dfcc8aa0e5%3A0x667f066edc78a137!2sR.+Santa+Luzia+-+Centro%2C+Rio+de+Janeiro+-+RJ!5e0!3m2!1spt-BR!2sbr!4v1489526727885" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+		<footer>
+  <p>Faculdade de Tecnologia SENAC Rio</p>
+</footer>
+	</div>
+
+	
+</body>
+
+</html>
+
+https://www.w3schools.com/css/css_navbar.asp
