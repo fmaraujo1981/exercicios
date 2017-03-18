@@ -38,6 +38,7 @@
 	</select>
 	<br/>
 	<Label> Idade: </label><input id="idade" type="number" disabled/>
+	<Label> Signo: </label><input id="sig" type="text" disabled/>
 	<button onclick="calculaIdade()">Descubra a idade</button>
 </div>
 
@@ -99,7 +100,26 @@ else{
 
 }
 document.getElementById("idade").value=i
+if (mn==1){
+	if(dn>=20){
+		sig="Aquario";
+	}
+	else{
+		sig="Capricornio"
+	}
+}
 
+if (mn==2){
+	if(dn>=19){
+		sig="Peixes"
+	}
+	else{
+		sig="Aquario"
+	}
+}
+
+
+document.getElementById("sig").value=sig
 }
 
 
