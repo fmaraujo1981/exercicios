@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang=”pt-br”>
+<head>
+<meta charset=”UTF-8”>
+<title></title>
+
+</head>
+<body>
+<div id="signo">
+<label>Dia: </label>
+	<select id="dia">
+	<script>
+		for(i=1;i<=31;i++){
+		document.write("<option value='"+i+"'>"+i+"</h1>")
+		}
+		//	<option value='1'>1</option> como deve ser o option
+
+	</script>
+	</select>
+<label>Mês: </label>
+	<select id="mes">
+	<script>
+		m=['','JANEIRO','FEVEREIRO','MARÇO','ABRIL','MAIO','JUNHO','JULHO','AGOSTO','SETEMBRO','OUTUBRO','NOVEMBRO','DEZEMBRO']
+		for(i=1;i<=12;i++){
+		document.write("<option value='"+i+"'>"+m[i]+"</h1>")
+		}
+	</script>
+	</select>
+<label>Ano: </label>
+	<select id="ano">
+	<script>
+		for(i=2017;i>=2017-100;i--){
+		document.write("<option value='"+i+"'>"+i+"</h1>")
+		}
+		//	<option value='1'>1</option> como deve ser o option
+
+	</script>
+	</select>
+	<br/>
+	<Label> Idade: </label><input id="idade" type="number" disabled/>
+	<button onclick="calculaIdade()">Descubra a idade</button>
+</div>
+
+</body>
+<script>
+/*
+n1=parseInt(prompt("Digite Nota 1"))
+n2=parseInt(prompt("Digite Nota 2"))
+m=(n1+n2)/2
+alert(m)
+if (m>=7){
+alert("Aprovado")
+}
+else{
+	if(m>=5){
+		alert("Recuperação")
+		}
+	else{
+	alert("Reprovado")
+	}
+}
+
+dn=parseInt(prompt("Digite Dia de Nascimento"))
+mn=parseInt(prompt("Digite Mês de Nascimento"))
+an=parseInt(prompt("Digite Ano de Nascimento"))
+*/
+var d = new Date();
+da= d.getDate()
+ma= d.getMonth()+1
+aa= d.getFullYear()
+
+hora=d.getHours()
+
+
+document.write("Data de hoje: "+da+"/"+ma+"/"+aa+"<br/>")
+ 
+
+function calculaIdade(){
+dn=document.getElementById("dia").value
+mn=document.getElementById("mes").value
+an=document.getElementById("ano").value
+
+if(mn>ma){
+	i=(aa-an)-1
+}
+else{
+	if(mn<ma){
+		i=aa-an
+	}
+	else{
+		if(da>dn){
+			i=(aa-an)-1
+		}
+		else{
+			i=aa-an
+
+		}
+	}
+
+}
+document.getElementById("idade").value=i
+
+}
+
+
+
+</script>
+</html>
+
+
+
+
+
+
