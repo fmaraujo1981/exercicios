@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Switch-Case</title>
+        <script>
+			//Declaração de variável para recebimento de valor do prompt (Caixa de Diálogo)
+        	var tipo = window.prompt("Digite o tipo do animal (Ave-Mamífero-Réptil)");
+			//Declaração do switch - case com o recebimento da opção vinda do prompt
+			//Podemos receber um valor com String
+			switch(tipo){
+				case "mamifero":
+					window.alert("É um mamífero!!!");	
+				break;			
+				case "ave":
+					window.alert("É uma Ave!!!");
+				break;
+				case "reptil":
+					window.alert("É um Réptil!!!");
+				break;
+				default:
+					window.alert("O animal passado não consta na lista!!!");
+				break;
+			}			
+        </script>	
+        <script>
+        	var tipo = window.prompt("Digite o tipo do animal (1-Ave / 2-Mamífero / 3-Réptil)");
+			//Também podemos receber um valor como numérico
+			switch(tipo){
+				case "1":						
+					window.alert("É uma Ave!!!");
+				break;			
+				case "2":
+					window.alert("É um mamífero!!!");
+				break;
+				case "3":
+					window.alert("É um Réptil!!!");
+				break;
+				default:
+					window.alert("O animal passado não consta na lista!!!");
+				break;
+			}			
+        </script>	
+    </head>
+    
+    <body>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+#body{
+	margin: 0px;
+	padding:0px;
+}
+#topo_pagina{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	padding: 20px;
+	background-color: #036;
+	color: #FFF;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 30px;
+}
+#pc_grande{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	padding: 20px;
+	background-color: #F60;
+	color: #FFF;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 30px;
+}
+#tablet_medio{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	padding: 20px;
+	background-color: #090;
+	color: #FFF;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 30px;
+}
+#smart_pequeno{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	padding: 20px;
+	background-color: #90F;
+	color: #FFF;
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 30px;
+}
+@media screen and (max-width:480px){
+	#tablet_medio, #pc_grande {display:none;}
+}
+@media screen and (min-width:481px) and (max-width:960px){
+	#smart_pequeno, #pc_grande{display:none;}
+}
+@media screen and (min-width:961px){
+	#smart_pequeno, #tablet_medio{display:none;}
+}

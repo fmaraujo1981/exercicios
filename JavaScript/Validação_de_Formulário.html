@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Validando Formulário</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+			function isNum(v){
+				var validaChars = "0123456789";
+				var isNumber = true;
+				var char;
+				for(i = 0; i < v.length && isNumber == true; i++){
+					char = v.charAt(i);
+					if(validaChars.indexOf(char) == -1){
+						isNumber = false;
+					}
+				}
+				return isNumber;
+			}
+			function valida(form){
+				if(form.nome.value == ""){
+					alert("Preencha o campo nome");
+					form.nome.focus();
+					return false;
+				}
+				var filtroMail = /^.+@.+\..{2,3}$/;
+				if(!filtroMail.test(form.email.value) || form.email.value == ""){
+					alert("Preecha o email corretamente!!!");
+					form.email.focus();
+					return false;
+				}
+				if(form.idade.value == "" || !isNum(form.idade.value)){
+					alert("Preencha corretamente a idade!!!");
+					form.idade.focus();
+					return false;
+				}
+				if(form.endereco.value == "" || form.endereco.value.length < 8){
+					alert("Preencha corretamente o endereço!!!");
+					form.endereco.focus();
+					return false;	
+				}
+				if(form.telefone.value == ""){
+					alert("Preencha o telefone corretamente!!!");
+					form.telefone.focus();
+					return false;
+				}
+				if(form.dataNascimento.value == "" ||form.dataNascimento.value.length !=10){
+					alert("Preencha a Data de nascimento corretamente!!!");
+					form.dataNascimento.focus();
+					return false;
+				}
+				if(form.senha.value == "" || form.senha.value.length < 6){
+					alert("Preencha a senha corretamente!!!");
+					form.senha.focus();
+					return false;
+				}
+				if(form.confSenha.value == "" || form.confSenha.value.length < 6){
+					alert("Preencha a senha corretamente!!!");
+					form.confSenha.focus();
+					return false;
+				}
+				if(form.confSenha.value !== form.senha.value){
+					alert("Confirmação de Senha não confere!!!");
+					form.senha.focus();
+					return false;
+				}
+			}
+        </script>
+    </head>
+    
+    <body>    
+    <h1><label>VALIDAÇÃO DE FORMULÁRIO</label></h1>
+    	<form name="form" onSubmit="return valida(this)">
+            <label>Nome:</label><input type="text" name="nome"><br><br>
+            <label>Email:</label><input type="text" name="email"><br><br>
+            <label>Idade:</label><input type="text" name="idade" ><br><br>
+            <label>Endereço:</label><input type="text" name="endereco"><br><br>
+            <label>Telefone:</label><input type="text" name="telefone">(Formato: ddd+telefone)<br><br>
+            <label>Data Nascimento:</label><input type="text" name="dataNascimento" value="dd/mm/aaaa" maxlength="10" onFocus="if(this.value=='dd/mm/aaaa'){this.value='';}" onBlur="if(this.value==''){this.value=='dd/mm/aaaa';}"><br><br>
+            <label>Senha:</label><input type="password" name="senha">Mínimo: 6 caracteres<br><br>
+            <label>Confirme Senha:</label><input type="password" name="confSenha"><br><br>
+            <label>Sexo:</label><input type="radio" name="sexo" value="M">Masculino
+			<input type="radio" name="sexo" value="F">Feminino<br><br>
+            <input type="submit" value="Enviar">              
+        </form>              
+    </body>
+</html>
