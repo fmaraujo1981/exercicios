@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+var pessoa = {
+	nome: 'Raphael', sobrenome: 'Casali', idade: 36, casado: true,
+};
+for(prop in pessoa){
+	console.log(prop + ": " + pessoa[prop]);
+}
+
+function Pessoa(n, s){
+	this.nome = n;
+	this.sobrenome = s;
+	this.nomeCompleto = function(){
+		return this.nome + " " + this.sobrenome;
+	}
+}
+var joao = new Pessoa('João', 'Silva'); 
+console.log(joao.nomeCompleto());
+var joao = new Pessoa('Ana', 'Souza');
+console.log(joao.nomeCompleto());
+
+
+var ranking = {
+	pos: 0,
+	get getPos(){
+		return("0" + this.pos).substr(-2);
+	}, 
+	set setPos(n){
+		this.pos = n;
+	}
+};
+console.log(ranking.getPos);
+ranking.setPos = 7;
+console.log(ranking.getPos);
+
+</script>
+<script src="CTB05.json"></script>
+	<script>
+		document.write("<table border=1>");
+		for(i in json.nodes){
+			ano = json.nodes[i].node["Ano"];
+			uf = json.nodes[i].node["UF"];
+			vinculos = json.nodes[i].node["vinculos"];
+			document.write("<tr><td>" + ano + "</td><td>" + uf + "</td><td>" + vinculos + "</td></tr>");
+
+		}
+		document.write("</table>");
+	</script>
+
+</body>
+</html>

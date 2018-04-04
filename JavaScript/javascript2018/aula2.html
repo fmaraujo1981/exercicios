@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+  <title>Aula 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div>
+	<form action="/action_page.php">
+  <div class="form-group">
+    <label for="nome">Nota 1:</label>
+    <input type="number" class="form-control" id="nome1">
+
+	<label for="nome">Nota 2:</label>
+    <input type="number" class="form-control" id="nome2">
+    
+    <label for="nome">Nota 3:</label>
+    <input type="number" class="form-control" id="nome3">
+
+<label for="nome">Nota 4:</label>
+    <input type="number" class="form-control" id="nome4">
+    <label for="nome">Nota 5:</label>
+    <input type="number" class="form-control" id="nome5">
+      
+      <label for="nome">Maior:</label>
+      <input type="number" class="form-control" id="maior" disabled>
+      </div>
+
+
+
+  
+<button type="button" class="btn btn-success" onclick="salva()">Salvar</button>
+</form>
+</div>
+
+	<script>
+		function salva(){
+
+			nomes=[];
+			/*
+			nomes[0]=document.getElementById("nome1").value;
+			nomes[1]=document.getElementById("nome2").value;
+			nomes[2]=document.getElementById("nome3").value;
+			nomes[3]=document.getElementById("nome4").value;
+			nomes[4]=document.getElementById("nome5").value;
+			*/
+			maior=0;
+			for (i=0;i<5;i++){
+				p=i+1;
+				nomes[i]=document.getElementById("nome"+p).value;
+				if(nomes[i]>maior){
+					maior=nomes[i];
+				}
+
+			}
+
+			document.getElementById("maior").value=maior;
+		}
+
+	</script>
+
+
+</body>
+</html>

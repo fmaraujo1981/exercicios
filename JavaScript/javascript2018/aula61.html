@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+
+<script src="CTB05.json"></script>
+	<script>
+		document.write("<table border=1>");
+		for(i in JSON.nodes){
+			ano = JSON.nodes[i].node["Ano"];
+			uf = JSON.nodes[i].node["UF"];
+			vinculos = JSON.nodes[i].node["vinculos"];
+			document.write("<tr><td>" + ano + "</td><td>" + uf + "</td><td>" + vinculos + "</td></tr>");
+
+		}
+		document.write("</table>");
+	</script>
+
+</body>
+</html>

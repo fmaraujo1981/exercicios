@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Made with Thimble</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .forca{
+        background-repeat: no-repeat;
+        width: 570px;
+        height: 450px;
+    }
+    #cenario{
+  background-image: url("cenario.jpg");
+
+}
+#cabeca{
+  display: none;
+  background-image: url("cabeca.jpg");
+ 
+}
+#corpo{
+  display: none;
+  background-image: url("corpo.jpg");
+
+}
+#braco1{
+  display: none;
+  background-image: url("braco1.jpg");
+
+}
+#braco2{
+  display: none;
+  background-image: url("braco2.jpg");
+
+}
+#perna1{
+  display: none;
+  background-image: url("perna1.jpg");
+
+}
+#perna2{
+  display: none;
+  background-image: url("perna2.jpg");
+
+}
+#fim{
+  display: none;
+  background-image: url("fim.jpg");
+
+}
+  </style>
+  </head>
+  <body>
+    <h1>Forca</h1>
+      <div id="cenario" class="forca"></div>
+      <div id="cabeca" class="forca"></div>
+      <div id="corpo" class="forca"></div>
+      <div id="braco1" class="forca"></div>
+      <div id="braco2" class="forca"></div>
+      <div id="perna1" class="forca"></div>
+      <div id="perna2" class="forca"></div>
+      <div id="fim" class="forca"></div>
+      
+    
+
+    Palavra: <input type="text" id="palavra" disabled/><br>
+    Numero sorteado: <input type="text" id="posicao" disabled/><br>
+    Letras: <input type="text" id="letras" disabled/><br>
+    <button onclick="sorteiaPalavra()">Gerar Palavra</button><br>
+    Palavra: <input type="text" id="pNovas" disabled/><br>
+    <hr/>
+    Teste <input type="text" id="teste" min=1 max=1/>
+    <button onclick="verifica()">Verifica</button><br>
+    Resultado: <input type="text" id="res" disabled/><br>
+    Letras encontradas: <input type="text" id="enc" disabled/><br>
+    Letras não encontradas: <input type="text" id="nenc" disabled/><br>
+    <script>
+    
+    frutas=["Pera","Uva","Maça"];
+    tVetor=frutas.length;
+      tentativasErradas=[];
+      tentativasCorretas=[];
+    pNova=[];
+
+    function sorteiaPalavra(){
+      //limpavetor
+      tentativasErradas.length=0;
+      tentativasCorretas.length=0;
+      pNova.length=0;
+      erros=0;
+      document.getElementById('enc').value=tentativasCorretas;
+      document.getElementById('nenc').value=tentativasErradas;
+      
+      //dica http://www.devfuria.com.br/javascript/gerar-numero-randomico-entre-2-numeros-quaisquer/
+      p=Math.floor(Math.random() * tVetor);
+      palavra=frutas[p].toLowerCase();
+      tamanho=palavra.length;
+
+      document.getElementById("palavra").value=palavra;
+      document.getElementById("posicao").value=p;
+      document.getElementById("letras").value=tamanho;
+    
+      for (i=0;i<palavra.length;i++){
+        pNova[i]="?";
+      
+      }
+      document.getElementById("pNovas").value=pNova;
+
+      
+    }  
+      function verifica(){
+        
+        tent=document.getElementById("teste").value.toLowerCase();
+        if (palavra.indexOf(tent) >= 0) {
+          pos=palavra.indexOf(tent)
+          document.getElementById('res').value="letra na posição: "+pos;
+          tentativasCorretas[palavra.indexOf(tent)]=tent;
+          pNova[pos]=tent;
+          document.getElementById("pNovas").value=pNova;
+
+          
+        }
+          else{            document.getElementById('res').value="LETRA NÃO ENCONTRADA";
+               tentativasErradas.push(tent);
+               erros=erros+1;
+switch(erros) {
+    case 1:
+document.getElementById("cenario").style.display="none";
+document.getElementById("cabeca").style.display="block";
+        break;
+    case 2:
+       document.getElementById("cabeca").style.display="none";
+document.getElementById("corpo").style.display="block";
+        break;
+case 3:
+       document.getElementById("corpo").style.display="none";
+document.getElementById("braco1").style.display="block";
+        break;
+case 4:
+       document.getElementById("braco1").style.display="none";
+document.getElementById("braco2").style.display="block";
+        break;
+case 5:
+       document.getElementById("braco2").style.display="none";
+document.getElementById("perna1").style.display="block";
+        break;
+case 6:
+       document.getElementById("perna1").style.display="none";
+document.getElementById("perna2").style.display="block";
+        break;
+case 7:
+       document.getElementById("perna2").style.display="none";
+document.getElementById("fim").style.display="block";
+        break;
+default:
+document.getElementById("cenario").style.display="block";
+       document.getElementById("corpo").style.display="none";
+
+              document.getElementById("cabeca").style.display="none";
+
+document.getElementById("perna1").style.display="none";
+document.getElementById("perna2").style.display="none";
+document.getElementById("braco1").style.display="none";
+document.getElementById("braco2").style.display="none";
+}
+if (erros>7){
+  document.getElementById("cenario").style.display="none";
+       document.getElementById("corpo").style.display="none";
+
+              document.getElementById("cabeca").style.display="none";
+
+document.getElementById("perna1").style.display="none";
+document.getElementById("perna2").style.display="none";
+document.
+  document.getElementById("fim").style.display="block";
+
+}
+
+          }
+          
+        document.getElementById('enc').value=tentativasCorretas;
+        document.getElementById('nenc').value=tentativasErradas;
+        
+        if (tentativasCorretas.length == palavra.length){
+          pteste=tentativasCorretas.join("");
+          if(pteste==palavra){
+          document.getElementById("res").value ="Acertou "+pteste;
+          }
+        }
+             
+        
+      }
+    </script>
+  </body>
+</html>
