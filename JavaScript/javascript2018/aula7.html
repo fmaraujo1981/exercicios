@@ -1,0 +1,55 @@
+<html lang="pt_br">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<meta charset="utf-8"/>
+</head>
+<body>
+
+<form name="produto" id="produto"  method="post" enctype='application/json'>
+  <input name="nome" type="text">
+  <select name="categoria">
+    <option selected>perecivel</option>
+    <option>não perecivel</option>
+  </select>
+
+
+  <input type="button" value="Salva" onclick='salva()'/>
+  
+</form>
+</body>
+<script>
+function salva(){
+var myJSON = JSON.stringify($("#produto").serializeArray());
+GravaArquivo('teste2',myJSON);
+}
+//Cria Objeto ActiveX
+var dados = new ActiveXObject("Scripting.FileSystemObject");
+
+//Função para gravar o arquivo
+function GravaArquivo(arq,texto){
+//pasta a ser salvo o arquivo
+var pasta="C:/Users/senacrio/Desktop/javascript2018/";
+//se o parametro arq que é o nome do arquivo vier vazio ele salvará o arquivo com o nome “Sem Titulo”
+if(arq==""){arq="Sem Titulo";}
+//carrega o txt
+var esc = dados.CreateTextFile(pasta+arq+".txt", false);
+//escreve o que foi passado no parametro texto que é o texto contido no TextArea
+esc.WriteLine(texto);
+//fecha o txt
+esc.Close();
+}
+//Função para abrir o arquivo
+function AbreArquivo(arq){
+//o parametro arq é o endereço do txt
+//carrega o txt
+var arquivo = dados.OpenTextFile(arq, 1, true);
+//varre o arquivo
+while(!arquivo.AtEndOfStream){
+//escreve o txt no TextArea
+document.getElementById("texto").value = arquivo.ReadAll();
+}
+//fecha o txt
+arquivo.Close();
+}
+</script>
+</html>
